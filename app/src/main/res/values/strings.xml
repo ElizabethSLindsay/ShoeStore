@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email">Email:</string>
+    <string name="login_to_your_account">Login to your account:</string>
+    <string name="password">Password:</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login">Login</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="email_hint">example@gmail.com</string>
+    <string name="welcome">Welcome!</string>
+    <string name="welcome_message">to Karaelya\'s shoe inventory!</string>
+    <string name="instructions_button">Instructions</string>
+    <string name="view_inventory">View Inventory</string>
+    <string name="add_shoe">add shoe</string>
+    <string name="instructions">Instructions</string>
+    <string name="inventory">Inventory</string>
+    <string name="add_new_shoe">Add New Shoe</string>
+    <string name="instructions_text_view">Tap the inventory button to view the shoes Karaelya already owns. To add a new pair of shoes to the inventory tap on  the add button in the lower right corner of  inventory.</string>
+    <string name="shoe_name">Shoe Name:</string>
+    <string name="brand">Brand:</string>
+    <string name="shoe_size">Shoe Size:</string>
+    <string name="description">Description:</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="save_button">Save</string>
+    <string name="black_boots">Black Boots</string>
+    <string name="gucci">Gucci</string>
+    <string name="_6_5">6.5</string>
+    <string name="shoe_description">Black leather, knee high riding boots.</string>
+    <string name="shoe_name_card">Shoe Name: %s</string>
+    <string name="brand_card">Brand: %s</string>
+    <string name="shoe_size_card">Shoe Size: %s</string>
+    <string name="description_card">Description: %s</string>
+</resources>
