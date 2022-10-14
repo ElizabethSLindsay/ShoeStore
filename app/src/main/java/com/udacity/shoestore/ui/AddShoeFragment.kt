@@ -13,7 +13,7 @@ import com.udacity.shoestore.databinding.FragmentAddShoeBinding
 
 import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.viewmodel.ShoeViewModel
-
+import timber.log.Timber
 
 
 class AddShoeFragment : Fragment() {
@@ -21,7 +21,6 @@ class AddShoeFragment : Fragment() {
     private val viewModel: ShoeViewModel by activityViewModels()
     private var _binding: FragmentAddShoeBinding? = null
     private val binding get() = _binding!!
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,15 +40,16 @@ class AddShoeFragment : Fragment() {
     }
 
     private fun saveNewShoe() {
-        val newShoe = Shoe(
-            name = binding.editTextShoeName.text.toString(),
-            size = binding.editTextNumberDecimalShoeSize.text.toString().toDouble(),
-            company = binding.editTextBrandName.text.toString(),
-            description = binding.editTextDescription.text.toString()
+        val shoe: Shoe = Shoe(
+            name = binding.shoe.name,
+            size = binding.shoe.size,
+            company = binding.shoe.company,
+            description = binding.shoe.description
         )
 
-        viewModel.addShoe(newShoe)
+        viewModel.addShoe(shoe)
 
         findNavController().navigate(R.id.action_addShoeFragment_to_shoeListFragment)
     }
+
 }

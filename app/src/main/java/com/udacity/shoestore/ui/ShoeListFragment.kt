@@ -1,9 +1,7 @@
 package com.udacity.shoestore.ui
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -24,6 +22,7 @@ class ShoeListFragment : Fragment() {
 
     private lateinit var itemBinding: ShoeItemBinding
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,13 +38,30 @@ class ShoeListFragment : Fragment() {
                 addShoe(shoe)
             }
         }
+        setHasOptionsMenu(true)
 
         binding.addShoeButton.setOnClickListener {
             findNavController().navigate(R.id.action_shoeListFragment_to_addShoeFragment)
         }
 
+
+
         return binding.root
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_shoe_list, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.logoutMenuItem ->
+                findNavController().navigate(R.id.action_shoeListFragment_to_loginFragment)
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+
 
     private fun addShoe(shoe: Shoe) {
         itemBinding = ShoeItemBinding.inflate(layoutInflater)

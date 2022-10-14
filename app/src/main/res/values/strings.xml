@@ -32,4 +32,5 @@
     <string name="brand_card">Brand: %s</string>
     <string name="shoe_size_card">Shoe Size: %s</string>
     <string name="description_card">Description: %s</string>
+    <string name="logout">Logout</string>
 </resources>
