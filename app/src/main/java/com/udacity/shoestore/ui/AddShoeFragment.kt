@@ -27,11 +27,11 @@ class AddShoeFragment : Fragment() {
 
         binding.shoe = Shoe("",0.0,"","", emptyList())
 
-        binding.cancelButton.setOnClickListener {
+        binding.cancelBtn.setOnClickListener {
             findNavController().navigate(R.id.action_addShoeFragment_to_shoeListFragment)
         }
 
-        binding.saveButton.setOnClickListener {
+        binding.saveBtn.setOnClickListener {
             saveNewShoe()
         }
 

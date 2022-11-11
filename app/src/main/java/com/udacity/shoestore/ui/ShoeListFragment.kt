@@ -20,7 +20,7 @@ class ShoeListFragment : Fragment() {
     private var _binding: FragmentShoeListBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var itemBinding: ShoeItemBinding
+    private lateinit var shoeBinding: ShoeItemBinding
 
 
     override fun onCreateView(
@@ -30,23 +30,31 @@ class ShoeListFragment : Fragment() {
         _binding = FragmentShoeListBinding.inflate(inflater, container, false)
 
         viewModel.shoeList.observe(viewLifecycleOwner) {
-            Timber.d(it.toString())
             Timber.d(viewModel.shoeList.value.toString())
             binding.shoeList.removeAllViews()
             for (shoe in it) {
-                Timber.d(shoe.toString())
-                addShoe(shoe)
+                addNewShoe(shoe)
             }
         }
-        setHasOptionsMenu(true)
 
-        binding.addShoeButton.setOnClickListener {
+        binding.addShoeBtn.setOnClickListener {
             findNavController().navigate(R.id.action_shoeListFragment_to_addShoeFragment)
         }
 
-
+        setHasOptionsMenu(true)
 
         return binding.root
+    }
+
+    private fun addNewShoe(shoe: Shoe) {
+        shoeBinding = ShoeItemBinding.inflate(layoutInflater)
+        shoeBinding.shoeNameCard.text = getString(R.string.shoe_name_card, shoe.name)
+        shoeBinding.shoeSizeCard.text = getString(R.string.shoe_size_card, shoe.size.toString())
+        shoeBinding.companyCard.text = getString(R.string.company_card, shoe.company)
+        shoeBinding.descriptionCard.text = getString(R.string.description_card, shoe.description)
+
+        binding.shoeList.addView(shoeBinding.shoeCard)
+        Timber.d(binding.shoeList.childCount.toString())
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -59,19 +67,5 @@ class ShoeListFragment : Fragment() {
                 findNavController().navigate(R.id.action_shoeListFragment_to_loginFragment)
         }
         return super.onOptionsItemSelected(item)
-    }
-
-
-
-    private fun addShoe(shoe: Shoe) {
-        itemBinding = ShoeItemBinding.inflate(layoutInflater)
-        Timber.d(shoe.toString())
-        itemBinding.shoeNameCard.text = getString(R.string.shoe_name_card, shoe.name)
-        itemBinding.brandCard.text = getString(R.string.brand_card, shoe.company)
-        itemBinding.shoeSizeCard.text = getString(R.string.shoe_size_card, shoe.size.toString())
-        itemBinding.descriptionCard.text = getString(R.string.description_card, shoe.description)
-
-        binding.shoeList.addView(itemBinding.shoeCard)
-        Timber.d(binding.shoeList.childCount.toString())
     }
 }

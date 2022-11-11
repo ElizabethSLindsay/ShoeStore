@@ -16,14 +16,13 @@ class InstructionsFragment : Fragment() {
     private var _binding: FragmentInstructionsBinding? = null
     private val binding get() = _binding!!
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentInstructionsBinding.inflate(inflater, container, false)
 
-        binding.inventoryButton.setOnClickListener {
+        binding.inventoryBtn.setOnClickListener {
             findNavController().navigate(R.id.action_instructionsFragment_to_shoeListFragment)
         }
 

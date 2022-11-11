@@ -22,12 +22,12 @@ class WelcomeFragment : Fragment() {
     ): View {
         _binding = FragmentWelcomeBinding.inflate(inflater, container, false)
 
-        binding.inventoryButton.setOnClickListener {
-            findNavController().navigate(R.id.action_welcomeFragment_to_shoeListFragment)
+        binding.instructionsBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_welcomeFragment_to_instructionsFragment)
         }
 
-        binding.instructionsButton.setOnClickListener {
-            findNavController().navigate(R.id.action_welcomeFragment_to_instructionsFragment)
+        binding.inventoryBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_welcomeFragment_to_shoeListFragment)
         }
 
         return binding.root

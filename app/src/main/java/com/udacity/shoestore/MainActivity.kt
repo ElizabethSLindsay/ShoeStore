@@ -20,20 +20,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        val mainBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(mainBinding.root)
 
-        setSupportActionBar(binding.toolbar)
+        setSupportActionBar(mainBinding.toolbar)
 
-        val navHostFragment = supportFragmentManager
+        val myNavHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        navController = navHostFragment.navController
+        navController = myNavHostFragment.navController
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-
         Timber.plant(Timber.DebugTree())
-
     }
 
     override fun onSupportNavigateUp(): Boolean {

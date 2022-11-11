@@ -22,12 +22,14 @@ class LoginFragment : Fragment() {
 
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
 
-        binding.loginButton.setOnClickListener {
+        binding.signUpBtn.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
         }
-        binding.signUpButton.setOnClickListener {
+
+        binding.loginBtn.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
         }
+
 
         return binding.root
     }

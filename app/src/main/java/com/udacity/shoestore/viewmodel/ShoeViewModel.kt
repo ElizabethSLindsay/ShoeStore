@@ -19,7 +19,6 @@ class ShoeViewModel : ViewModel() {
         Timber.d(shoe.toString())
         _shoeList.value!!.add(shoe)
         Timber.d(_shoeList.value.toString())
-        Timber.d(shoeList.value.toString())
     }
 
 
